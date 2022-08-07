@@ -1,12 +1,12 @@
-# Laporan Serangan Server BlackBox
+# Laporan Serangan Server MoneyBox
 
-Ini adalah hasil serangan yang telah dilakukan pada server BlackBox untuk latihan serangan.
+Ini adalah hasil serangan yang telah dilakukan pada server MoneyBox untuk latihan serangan.
 
 ## Pencarian IP Address Server
 
 - cek ip pc : `ip a` atau `ifconfig` 
 - nmap: `nmap -sP <network_id>/<prefix>`
-- uji koneksi, kali linux dan server blackbox: `ping <ip_server>`
+- uji koneksi, kali linux dan server moneybox: `ping <ip_server>`
 
 ## Scan Port Server dengan NMAP
 - nmap : `nmap <ip_server>`
@@ -47,7 +47,7 @@ Ini adalah hasil serangan yang telah dilakukan pada server BlackBox untuk latiha
 - login server : `ssh remu@<ip>`
 
 ## Cari Flag
-Setelah berhasil masuk server blackbox pada segera temukan flag
+Setelah berhasil masuk server moneybox pada segera temukan flag
 ### Flag 1
 - terdapat pada user remu
 ### Flag 2
