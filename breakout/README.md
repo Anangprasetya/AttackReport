@@ -38,18 +38,18 @@ Ini adalah hasil serangan yang telah dilakukan pada server Breakout untuk latiha
 - http (80)
 - samba (139)
 - samba (445)
-- http miniserv (1000)
-- http miniserv (2000)
+- http miniserv (10000)
+- http miniserv (20000)
 
-## Access HTTP MINISERV Port 1000 & 2000
+## Access HTTP MINISERV Port 10000 & 20000
 - gunakan url browser
-	- http (1000)
+	- http (10000)
 		```
-		http://<ip_server>:1000
+		http://<ip_server>:10000
 		```
-	- http (2000)
+	- http (20000)
 		```
-		http://<ip_server>:2000
+		http://<ip_server>:20000
 		```
 
 **Note :** jika dialihkan menggunakan **https** maka ikuti
@@ -78,7 +78,7 @@ Ini adalah hasil serangan yang telah dilakukan pada server Breakout untuk latiha
 	https://www.dcode.fr/brainfuck-language
 	```
 - password : **.2uqPEfj3D< P'a-3**
-- login pada port 2000
+- login pada port 20000
 - klik menu shell (terminal)
 - buka terminal listener : 
 	```
