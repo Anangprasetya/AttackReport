@@ -101,3 +101,98 @@ source <path_activate>
 ```
 deactivate
 ```
+
+
+## Menambahkan Repository Kali Linux
+- install keyring .deb
+```
+wget http://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2022.1_all.deb
+sudo dpkg -i kali-archive-keyring_2022.1_all.deb
+sudo apt update
+sudo apt-get update
+
+```
+- tambahkan repository
+```
+sudo nano /etc/apt/sources.list
+```
+```
+#kali linux
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+deb http://http.kali.org/kali kali-last-snapshot main contrib non-free
+deb http://http.kali.org/kali kali-experimental main contrib non-free
+```
+- tambahkan pada baris paling bawah, dan save
+- update repository
+```
+sudo apt update
+sudo apt-get update
+sudo apt upgrade
+sudo apt-get upgrade
+
+```
+
+
+
+
+## Install JAVA 18 (terbaru)
+- download java 18
+```
+wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
+```
+- install
+```
+sudo dpkg -i jdk-18_linux-x64_bin.deb
+```
+**Note :** jika terjadi error seperti dibawah
+```
+dpkg: dependency problems prevent configuration of jdk-18:
+ jdk-18 depends on libc6-i386; however:
+  Package libc6-i386 is not installed.
+ jdk-18 depends on libc6-x32; however:
+  Package libc6-x32 is not installed.
+
+dpkg: error processing package jdk-18 (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ jdk-18
+``` 
+- perbaikan error (jika tidak terjadi error skip langkah ini)
+```
+sudo apt --fix-broken install
+```
+- setelah memperbaiki error lakukan **langkah install** kembali
+- jadikan java 18 sebagai default
+```
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-18/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-18/bin/javac 1
+
+```
+- cek versi java
+```
+java --version
+
+```
+**Note :** jika sebelumnya sudah terinstall java, maka ikuti langkah berikut
+
+- pindah prioritas java
+```
+sudo update-alternatives --config java
+```
+- pilih java 18
+```
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+* 0            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      auto mode
+  1            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+  2            /usr/lib/jvm/jdk-18/bin/java                     1         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: using /usr/lib/jvm/jdk-18/bin/java to provide /usr/bin/java (java) in manual mode
+```
+**Note :** pada komputer saya, memilih no 2 karena java 18 ada di opsi 2
+
+- lakukan cek versi java kembali
