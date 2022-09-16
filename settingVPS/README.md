@@ -196,3 +196,45 @@ update-alternatives: using /usr/lib/jvm/jdk-18/bin/java to provide /usr/bin/java
 **Note :** pada komputer saya, memilih no 2 karena java 18 ada di opsi 2
 
 - lakukan cek versi java kembali
+
+
+
+
+
+## Install Android Studio 2021.2
+- pastikan java sudah terinstall
+```
+java --version
+```
+- pada pc saya menggunakan java 18
+```
+java 18.0.2.1 2022-08-18
+Java(TM) SE Runtime Environment (build 18.0.2.1+1-1)
+Java HotSpot(TM) 64-Bit Server VM (build 18.0.2.1+1-1, mixed mode, sharing)
+```
+- cari android studio di **snap**
+```
+snap find "android-studio"
+```
+- sesuai dengan versi terbaru
+```
+Name                   Version      Publisher     Notes    Summary
+android-studio         2021.2.1.15  snapcrafters  classic  The IDE for Android
+android-studio-canary  2022.1.1.7   snapcrafters  classic  The IDE for Android (Canary build)
+```
+- install android studio
+```
+sudo snap install android-studio --classic
+```
+
+#### Lanjutan Install Android Studio
+- buka aplikasi 
+- pada pop up pertama pilih `Do not import settings`
+- pada pop up kedua pilih `Don't send`
+- Welcome : `next`
+- Install Type : `Standard` > `next`
+- Select UI Theme : `bebaaasss (Darcula-gelap, Light-terang)` > `next`
+- Verify Settings : `next`
+- Emulator Settings : `finish`
+- Downloading Components : `finish`
+- masuk pembuatan project baru 
